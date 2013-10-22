@@ -1,0 +1,20 @@
+---
+layout: main
+title: Olivia Cha - Video Editor - Watch
+---
+
+<p><a href="/reels">Back</a></p>
+<p>
+    <script type="text/javascript">
+        var url = window.location.href;
+        var split_url = url.split("?");
+        if(split_url.length > 1) {
+            var vid = split_url[1].split("=")[1];
+            document.write("<iframe src=\"http://player.vimeo.com/video/" + vid +
+                "\" width=\"640\" height=\"360\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>");
+        }
+        else {
+            document.write("No video id specified.")
+        }
+    </script>
+</p>
