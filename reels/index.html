@@ -3,7 +3,21 @@ layout: main
 title: Olivia Cha - Video Editor - Videos
 ---
 
+{% for section in page.sections %}
 <table class='videotable'>
+    <tr>
+        <td class="videotabletitle" colspan="3">{{ section.name }}</td>
+    </tr>
+    <tr>
+    {% for link in section.links %}
+        <td><a href="/watch/?vid={{ link.id }}"><img src="{{ link.thumbnail }}" /></a></td>
+        {{ link.position | drop_next_row: 3 }}
+    {% endfor %}
+    </tr>
+</table>
+{% endfor %}
+
+<!-- <table class='videotable'>
     <tr>
         <td class="videotabletitle" colspan="3">tv</td>
     </tr>
@@ -78,4 +92,4 @@ title: Olivia Cha - Video Editor - Videos
     <tr>
         <td>Themes: Glee, Modern Family, SNL, Amazing Race, Austin Powers, Jets, ESPN.  Available on request.</td>
     </tr>
-</table>
+</table> -->
