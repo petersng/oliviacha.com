@@ -11,7 +11,10 @@ title: Olivia Cha - Video Editor - Videos
     <tr>
     {% for link in section.links %}
         <td><a href="/watch/?vid={{ link.id }}"><img src="{{ link.thumbnail }}" /></a></td>
-        {{ link.position | drop_next_row: 3 }}
+        {% capture themod %}{{ link.position | modulo: 3}}{% endcapture %}
+        {% if themod == "0" %}
+            </tr><tr>
+        {% endif %}
     {% endfor %}
     </tr>
 </table>
