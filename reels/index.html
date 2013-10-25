@@ -9,6 +9,9 @@ title: Olivia Cha - Video Editor - Videos
         <td class="videotabletitle" colspan="3">{{ section.name }}</td>
     </tr>
     <tr>
+    {% if section.text != ''%}
+        <td>{{ section.text }}</td>
+    {% else %}
     {% for link in section.links %}
         <td><a href="/watch/?vid={{ link.id }}"><img src="{{ link.thumbnail }}" /></a></td>
         {% capture themod %}{{ link.position | modulo: 3}}{% endcapture %}
@@ -16,6 +19,7 @@ title: Olivia Cha - Video Editor - Videos
             </tr><tr>
         {% endif %}
     {% endfor %}
+    {% endif %}
     </tr>
 </table>
 {% endfor %}
