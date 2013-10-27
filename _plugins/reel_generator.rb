@@ -48,8 +48,7 @@ module Jekyll
             data = vimeo.get_info(video_id)
             data['video'][0]
         end
-        def get_vimeo_video_thumbnail(vimeo, video_id, width, height)
-            video_data = get_vimeo_video_info(vimeo, video_id)
+        def get_vimeo_video_thumbnail(video_data, width, height)
             thumbnails = video_data['thumbnails']['thumbnail']
             thumbnails.each do |thumb|
                 if width > 0 and height > 0
@@ -84,23 +83,24 @@ module Jekyll
                 elsif line.start_with?('http')
                     link = line
                     video_id = strip_id_from_vimeo_link(link)
+                    video_data = get_vimeo_video_info(vimeo, video_id)
                     section['links'].push({
-                        'url' => link,
-                        'id' => video_id,
-                        'position' => position,
                         'text' => '',
-                        'thumbnail' => get_vimeo_video_thumbnail(
-                            vimeo, video_id, 200, 150)
+                        'video' => {
+                            'url' => link,
+                            'id' => video_id,
+                            'position' => position,
+                            'title' => video_data['title'],
+                            'thumbnail' => get_vimeo_video_thumbnail(
+                                video_data, 200, 150)
+                        }
                     })
                     position = position + 1
-                # Check to see if it just text for that section
+                # Check to see if it just text
                 else
                     section['links'].push({
-                        'url' => '',
-                        'id' => '',
-                        'position' => '',
                         'text' => line,
-                        'thumbnail' => ''
+                        'video' => nil
                     })
                 end
             end
