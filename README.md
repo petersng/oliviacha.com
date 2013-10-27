@@ -1,11 +1,7 @@
 oliviacha.com
 -------------
 
-My GF's website.  For me, it means playing around using Jekyll for generating and deploying, along with writing some Ruby code.
-
-Goes out and calls the Vimeo API to generates the data code for her video portfolio, given a formatted list of links to use.
-
-Makes it easier to update it to whatever she wants.  Happy wife, happy life.
+My GF's video portfolio site, as she is a video editor.  She wanted a means to easily create her site without doing too much HTML or CSS to get her Vimeo links on the page.  So I hacked around with Jekyll, along with writing some custom Ruby code to extract Vimeo data given a list of links she wanted to use.  The Vimeo data was then used to generate the videos section on the site.
 
 ---
 
@@ -21,6 +17,8 @@ Access Token Secret
 
 ---
 
-After these files are in place, run "jekyll build" and the site should be generated and placed into the _site dir.
+After these files are in place, run "jekyll build" and the site should be generated and placed into the _site dir.  Boom.
+
+Copyright (C) Peter Ng + Olivia Cha
 
 
