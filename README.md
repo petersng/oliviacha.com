@@ -1,7 +1,7 @@
 oliviacha.com
 -------------
 
-My GF's video editor portfolio site.  Wanted an easy means to update the video links on the site without manually entering all the data and adjusting the links.
+My GF's video editor portfolio site.  Completely over-engineered to provide an easy means to update the video links on the site without manually entering all the data and adjusting the links.
 
 So I used Jekyll, along with writing some custom Ruby code to extract Vimeo data given a list of links she wanted to use.  The Vimeo data was then used to generate the videos section on the site.
 
@@ -17,7 +17,12 @@ App Secret
 Access Token
 Access Token Secret
 
+---
+
 Requires:
+
+http://jekyllrb.com/
+
 https://github.com/matthooks/vimeo/
 
 ---
@@ -26,4 +31,5 @@ After these files are in place, run "jekyll build" and the site should be genera
 
 Copyright (C) Peter Ng + Olivia Cha
 
+---
 
