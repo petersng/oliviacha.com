@@ -17,19 +17,23 @@ App Secret
 Access Token
 Access Token Secret
 
----
-
 Requires:
 
 http://jekyllrb.com/
 
 https://github.com/matthooks/vimeo/
 
+After these files are in place, run "jekyll build" and the site should be generated and placed into the _site dir.
+
 ---
 
-After these files are in place, run "jekyll build" and the site should be generated and placed into the _site dir.
+Enhancements:
+
+Add ability to enable a video only for the domain via the API.
+
+---
 
 Copyright (C) Peter Ng + Olivia Cha
 
----
+
 

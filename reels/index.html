@@ -13,7 +13,7 @@ title: Olivia Cha - Video Editor - Videos
         {% if link.text != ''%}
             <td colspan="3">{{ link.text }}</td></tr><tr>
         {% else %}
-            <td><a target="_window" href="/watch/?vid={{ link.video.id }}&amp;title={{ link.video.title }}">
+            <td><a target="_blank" title="{{ link.video.title }}" href="/watch/?vid={{ link.video.id }}&amp;title={{ link.video.title }}">
             <img alt="{{ link.video.title }}" src="{{ link.video.thumbnail }}" /></a></td>
             {% capture themod %}{{ link.video.position | modulo: 3}}{% endcapture %}
             {% if themod == "0" %}
