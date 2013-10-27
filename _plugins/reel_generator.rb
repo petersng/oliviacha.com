@@ -20,15 +20,24 @@ module Jekyll
             site.pages << ReelsPage.new(site, site.source, 'reels', 'index.html', sections)
         end
         def get_vimeo_keys()
-            File.open('vimeo_keys.txt') do |line|
-
-            end
+            file = File.open('vimeo_keys.txt')
+            consumer_key = file.gets()
+            consumer_secret = file.gets()
+            access_token = file.gets()
+            access_token_secret = file.gets()
+            {
+                "consumer_key" => consumer_key.strip!,
+                "consumer_secret" => consumer_secret.strip!,
+                "access_token" => access_token.strip!,
+                "access_token_secret" => access_token_secret.strip!
+            }
         end
         def get_vimeo_session()
-            Vimeo::Advanced::Video.new("7598b66411cf608028fa81754640d69a17f23bb2",
-                "f050e42e8d1df675c99a704f3222452639ec4a0c",
-                :token => '6c617d440d5dfea4d27e9c3a9ed6dfee',
-                :secret => '98b0da9d928e35c4467a25959250dee8f7934850')
+            keys = get_vimeo_keys
+            Vimeo::Advanced::Video.new(keys["consumer_key"],
+                keys["consumer_secret"],
+                :token => keys["access_token"],
+                :secret => keys["access_token_secret"])
         end
         def strip_id_from_vimeo_link(link)
             parsed = URI(link)
@@ -68,7 +77,6 @@ module Jekyll
                     section_name = line.sub('>>', '')
                     section = {
                         'name' => section_name,
-                        'text' => '',
                         'links' => []
                     }
                     position = 1
@@ -80,13 +88,20 @@ module Jekyll
                         'url' => link,
                         'id' => video_id,
                         'position' => position,
+                        'text' => '',
                         'thumbnail' => get_vimeo_video_thumbnail(
                             vimeo, video_id, 200, 150)
                     })
                     position = position + 1
                 # Check to see if it just text for that section
                 else
-                    section['text'] = line
+                    section['links'].push({
+                        'url' => '',
+                        'id' => '',
+                        'position' => '',
+                        'text' => line,
+                        'thumbnail' => ''
+                    })
                 end
             end
             sections_links.push(section)

@@ -9,17 +9,17 @@ title: Olivia Cha - Video Editor - Videos
         <td class="videotabletitle" colspan="3">{{ section.name }}</td>
     </tr>
     <tr>
-    {% if section.text != ''%}
-        <td>{{ section.text }}</td>
-    {% else %}
     {% for link in section.links %}
-        <td><a href="/watch/?vid={{ link.id }}"><img src="{{ link.thumbnail }}" /></a></td>
-        {% capture themod %}{{ link.position | modulo: 3}}{% endcapture %}
-        {% if themod == "0" %}
-            </tr><tr>
+        {% if link.text != ''%}
+            <td colspan="3">{{ link.text }}</td></tr><tr>
+        {% else %}
+            <td><a href="/watch/?vid={{ link.id }}"><img src="{{ link.thumbnail }}" /></a></td>
+            {% capture themod %}{{ link.position | modulo: 3}}{% endcapture %}
+            {% if themod == "0" %}
+                </tr><tr>
+            {% endif %}
         {% endif %}
     {% endfor %}
-    {% endif %}
     </tr>
 </table>
 {% endfor %}
