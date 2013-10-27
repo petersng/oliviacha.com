@@ -1,7 +1,9 @@
 oliviacha.com
 -------------
 
-My GF's video portfolio site, as she is a video editor.  She wanted a means to easily create her site without doing too much HTML or CSS to get her Vimeo links on the page.  So I hacked around with Jekyll, along with writing some custom Ruby code to extract Vimeo data given a list of links she wanted to use.  The Vimeo data was then used to generate the videos section on the site.
+My GF's video editor portfolio site.  Wanted an easy means to update the video links on the site without manually entering all the data and adjusting the links.
+
+So I used Jekyll, along with writing some custom Ruby code to extract Vimeo data given a list of links she wanted to use.  The Vimeo data was then used to generate the videos section on the site.
 
 ---
 
@@ -17,7 +19,7 @@ Access Token Secret
 
 ---
 
-After these files are in place, run "jekyll build" and the site should be generated and placed into the _site dir.  Boom.
+After these files are in place, run "jekyll build" and the site should be generated and placed into the _site dir.
 
 Copyright (C) Peter Ng + Olivia Cha
 
