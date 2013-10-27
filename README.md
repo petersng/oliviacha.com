@@ -17,6 +17,9 @@ App Secret
 Access Token
 Access Token Secret
 
+Requires:
+https://github.com/matthooks/vimeo/
+
 ---
 
 After these files are in place, run "jekyll build" and the site should be generated and placed into the _site dir.

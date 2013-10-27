@@ -1,3 +1,4 @@
+exclude:    ["README.md", "vimeo_keys.txt", "vimeo_links.txt"]
 source:      .
 destination: ./_site
 plugins:     ./_plugins
